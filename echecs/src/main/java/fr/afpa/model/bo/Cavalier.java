@@ -16,6 +16,10 @@ public class Cavalier extends PieceEchecs {
      * @return Renvoie vrai si le Cavalier peut aller sur la case et faux si non
      */
     public boolean peutAllerA(int xD, int yD) {
+        //si les déplacements sont hors-plateau
+        if (xD < 1 || xD > 8 || yD < 1 || yD > 8) {
+            return false; 
+        }
         // ici les deux variable permettent un déplacement dans toutes les directions
         // avec Math.abs
         int deplacementX = Math.abs(xD - this.getCoordonneesX());

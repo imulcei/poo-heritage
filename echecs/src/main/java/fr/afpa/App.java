@@ -15,7 +15,7 @@ public class App {
             System.out.println(cavalier.peutAllerA(4, 3));
 
             Fou fou = new Fou(6, 4, Couleur.BLANC, "Michel");
-            System.out.println(fou.peutAllerA(4, 5));
+            System.out.println(fou.peutAllerA(4, 8));
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
