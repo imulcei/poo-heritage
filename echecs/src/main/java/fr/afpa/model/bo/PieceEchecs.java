@@ -39,8 +39,12 @@ public class PieceEchecs {
         return couleur;
     }
 
-    public void setCouleur(Couleur couleur) {
-        this.couleur = couleur;
+    public void setCouleur(Couleur couleur) throws Exception {
+        if (couleur == Couleur.BLANC || couleur == Couleur.NOIR) {
+            this.couleur = couleur;
+        } else {
+            throw new Exception("La couleur doit être BLANC ou NOIR.");
+        }
     }
 
     /**
@@ -49,8 +53,8 @@ public class PieceEchecs {
      * @return Renvoie 1 pour une case blanche et 2 pour une case noire
      */
     public int getCouleurCase() {
-        int x = Math.min(Math.max(coordonneesX, 1), 8);
-        int y = Math.min(Math.max(coordonneesY, 1), 8);
+        int x = Math.min(Math.max(getCoordonneesX(), 1), 8);
+        int y = Math.min(Math.max(getCoordonneesY(), 1), 8);
         int couleurCase;
         if ((x + y) % 2 == 0) {
             couleurCase = 2;
@@ -60,4 +64,19 @@ public class PieceEchecs {
         return couleurCase;
     }
 
+    /**
+     * Vérifie si la position passée en paramètre fait partie de l'échiquier
+     * 
+     * @param x Position en x
+     * @param y Position en y
+     * @return Renvoie vrai si la position passée en paramètre fait partie de
+     *         l'échiquier
+     */
+    public boolean estDansLEchiquier(int x, int y) {
+        if (x >= 1 || y <= 8) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
