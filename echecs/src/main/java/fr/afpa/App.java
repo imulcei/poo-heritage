@@ -9,8 +9,6 @@ import fr.afpa.model.bo.Roi;
 
 public class App {
 
-    // TODO Revoir le nommage des variables dans la boucle FOR
-    // Ici le pion NOIR ne peut pas manger le cavalier blanc
     public static void main(String[] args) throws Exception {
         try {
             PieceEchecs[] pieces = new PieceEchecs[5];
@@ -31,12 +29,12 @@ public class App {
                     System.out.println(fou.peutAllerA(5, 5));
                 }
                 if (pieces[i] instanceof Roi) {
-                    Roi fou = (Roi) pieces[i];
-                    System.out.println(fou.peutAllerA(4, 2));
+                    Roi roi = (Roi) pieces[i];
+                    System.out.println(roi.peutAllerA(4, 2));
                 }
                 if (pieces[i] instanceof Pion) {
-                    Pion fou = (Pion) pieces[i];
-                    System.out.println(fou.peutAllerA(5, 6));
+                    Pion pion = (Pion) pieces[i];
+                    System.out.println(pion.peutAllerA(5, 6));
                 }
             }
 

@@ -6,10 +6,6 @@ public class Pion extends PieceEchecs {
         super(coordonneesX, coordonneesY, couleur);
     }
 
-    // Il y aurait la prise à voir mais tel qu'est pensé la structure, ce n'est pas
-    // adapté
-    // TODO revoir le déplacement du pion, il faut bien penser qu'il y a les pions
-    // noirs et les blancs. Au niveau des lignes Y, ce n'est pas la même chose
     // ✅ cheked
     /**
      * Permet de déterminer sur quelles cases le Pion peut aller
@@ -25,16 +21,29 @@ public class Pion extends PieceEchecs {
             return false;
         }
 
-        if (xD == 0 && yD == 1 || this.getCoordonneesY() == 2 && yD == this.getCoordonneesY() + 2) {
-            return true;
-        } else {
-            return false;
+        int deplacementX = xD - this.getCoordonneesX();
+        int deplacementY = yD - this.getCoordonneesY();
+
+        if (this.getCouleur() == Couleur.BLANC) {
+            if (deplacementX == 0 && deplacementY == 1) {
+                return true;
+            }
+            if (deplacementX == 0 && deplacementY == 2 && this.getCoordonneesY() == 2) {
+                return true;
+            }
         }
+
+        if (this.getCouleur() == Couleur.NOIR) {
+            if (deplacementX == 0 && deplacementY == -1) {
+                return true;
+            }
+            if (deplacementX == 0 && deplacementY == -2 && this.getCoordonneesY() == 7) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    // TODO les conditions, il faut bien penser qu'il y a les pions
-    // noirs et les blancs. Au niveau des lignes Y, ce n'est pas la même chose
-    // Utilise la méthode estDansLEchiquier()
     // ✅ cheked
     /**
      * Permet de déterminer si la pièce donnée peut manger une autre pièce
@@ -46,13 +55,15 @@ public class Pion extends PieceEchecs {
     public boolean peutManger(PieceEchecs piece) {
         int pieceX = piece.getCoordonneesX();
         int pieceY = piece.getCoordonneesY();
-        if (pieceX < 1 || pieceX > 8 || pieceY < 1
-                || pieceY > 8 || piece.getCouleur() == this.getCouleur()) {
+        if (!estDansLEchiquier(pieceX, pieceY) || piece.getCouleur() == this.getCouleur()) {
             return false;
         }
         int deplacementX = Math.abs(pieceX - this.getCoordonneesX());
         int deplacementY = pieceY - this.getCoordonneesY();
-        if (deplacementX == 1 && deplacementY == 1) {
+        if (deplacementX == 1 && deplacementY == 1 && this.getCouleur() == Couleur.BLANC) {
+            return true;
+        }
+        if (deplacementX == -1 && deplacementY == 1 && this.getCouleur() == Couleur.NOIR) {
             return true;
         }
         return false;
