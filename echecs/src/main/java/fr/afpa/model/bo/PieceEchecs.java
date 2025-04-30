@@ -1,6 +1,6 @@
 package fr.afpa.model.bo;
 
-public class PieceEchecs {
+public abstract class PieceEchecs {
     private int coordonneesX;
     private int coordonneesY;
     private Couleur couleur;
@@ -79,4 +79,6 @@ public class PieceEchecs {
             return false;
         }
     }
+
+    public abstract boolean peutAllerA(int x, int y);
 }

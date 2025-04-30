@@ -1,17 +1,17 @@
 package fr.afpa.model.bo;
 
-public class Cavalier extends PieceEchecs {
+public class Roi extends PieceEchecs {
 
-    public Cavalier(int coordonneesX, int coordonneesY, Couleur couleur) throws Exception {
+    public Roi(int coordonneesX, int coordonneesY, Couleur couleur) throws Exception {
         super(coordonneesX, coordonneesY, couleur);
     }
 
     /**
-     * Permet de déterminer sur quelles cases le Cavalier peut aller
+     * Permet de déterminer sur quelles cases le Roi peut aller
      * 
      * @param xD Coordonnées en x
      * @param yD Coordonnées en y
-     * @return Renvoie vrai si le Cavalier peut aller sur la case et faux si non
+     * @return Renvoie vrai si le Roi peut aller sur la case et faux si non
      */
     @Override
     public boolean peutAllerA(int xD, int yD) {
@@ -19,10 +19,11 @@ public class Cavalier extends PieceEchecs {
         if (xD < 1 || xD > 8 || yD < 1 || yD > 8) {
             return false;
         }
-        // ici les deux variable permettent un déplacement dans toutes les directions
+        // ici les deux variable permettent un déplacement en diagonale avec Math.abs
         int deplacementX = Math.abs(xD - this.getCoordonneesX());
         int deplacementY = Math.abs(yD - this.getCoordonneesY());
-        if (deplacementX == 2 && deplacementY == 1 || deplacementX == 1 && deplacementY == 2) {
+        if (deplacementX == 1 && deplacementY == 1 || deplacementX == 0 && deplacementY == 1
+                || deplacementX == 1 && deplacementY == 0) {
             return true;
         } else {
             return false;
