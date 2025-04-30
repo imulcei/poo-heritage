@@ -81,4 +81,6 @@ public abstract class PieceEchecs {
     }
 
     public abstract boolean peutAllerA(int x, int y);
+
+    public abstract boolean peutManger(PieceEchecs piece);
 }

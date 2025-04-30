@@ -29,4 +29,19 @@ public class Roi extends PieceEchecs {
             return false;
         }
     }
+
+    /**
+     * Permet de déterminer si la pièce donnée peut manger une autre pièce
+     * 
+     * @param piece
+     * @return Renvoie vrai si la pièce peut manger l'autre pièceet faux si non
+     */
+    @Override
+    public boolean peutManger(PieceEchecs piece) {
+        if (peutAllerA(piece.getCoordonneesX(), piece.getCoordonneesY()) && piece.getCouleur() != this.getCouleur()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

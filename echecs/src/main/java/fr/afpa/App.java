@@ -37,6 +37,14 @@ public class App {
                 }
             }
 
+            Cavalier cavalier = new Cavalier(3, 3, Couleur.BLANC);
+            Roi roi = new Roi(4, 5, Couleur.NOIR);
+            System.out.println(cavalier.peutManger(roi));
+
+            Cavalier cavalier2 = new Cavalier(5, 3, Couleur.NOIR);
+            Pion pion = new Pion(4, 2, Couleur.BLANC);
+            System.out.println(pion.peutManger(cavalier2));
+
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
