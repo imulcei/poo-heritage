@@ -6,6 +6,7 @@ public class Fou extends PieceEchecs {
         super(coordonneesX, coordonneesY, couleur);
     }
 
+    // ✅ cheked
     /**
      * Permet de déterminer sur quelles cases le Fou peut aller
      * 

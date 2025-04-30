@@ -6,6 +6,8 @@ public class Roi extends PieceEchecs {
         super(coordonneesX, coordonneesY, couleur);
     }
 
+    // Utilise la méthode estDansLEchiquier()
+    // ✅ cheked
     /**
      * Permet de déterminer sur quelles cases le Roi peut aller
      * 
@@ -30,6 +32,7 @@ public class Roi extends PieceEchecs {
         }
     }
 
+    // ✅ cheked
     /**
      * Permet de déterminer si la pièce donnée peut manger une autre pièce
      * 

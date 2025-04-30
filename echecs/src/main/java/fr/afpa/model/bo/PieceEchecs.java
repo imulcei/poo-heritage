@@ -47,6 +47,9 @@ public abstract class PieceEchecs {
         }
     }
 
+    // Pourquoi ne prends tu pas directement coordonneeX et coordonneeY ?
+    // Comme tu utilises l'ENUM, tu peux renvoyer directement la couleur BLANC ou
+    // NOIR au lieu du int
     /**
      * Permet de renvoyer la couleur de la case sur laquelle se trouve la pièce
      * 

@@ -6,6 +6,11 @@ public class Pion extends PieceEchecs {
         super(coordonneesX, coordonneesY, couleur);
     }
 
+    // Il y aurait la prise à voir mais tel qu'est pensé la structure, ce n'est pas
+    // adapté
+    // TODO revoir le déplacement du pion, il faut bien penser qu'il y a les pions
+    // noirs et les blancs. Au niveau des lignes Y, ce n'est pas la même chose
+    // ✅ cheked
     /**
      * Permet de déterminer sur quelles cases le Pion peut aller
      * 
@@ -27,6 +32,10 @@ public class Pion extends PieceEchecs {
         }
     }
 
+    // TODO les conditions, il faut bien penser qu'il y a les pions
+    // noirs et les blancs. Au niveau des lignes Y, ce n'est pas la même chose
+    // Utilise la méthode estDansLEchiquier()
+    // ✅ cheked
     /**
      * Permet de déterminer si la pièce donnée peut manger une autre pièce
      * 

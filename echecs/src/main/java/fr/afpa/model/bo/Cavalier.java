@@ -6,6 +6,8 @@ public class Cavalier extends PieceEchecs {
         super(coordonneesX, coordonneesY, couleur);
     }
 
+    // Utilise la méthode estDansLEchiquier() au lieu de refaire les tests ligne 20
+    // ✅ cheked
     /**
      * Permet de déterminer sur quelles cases le Cavalier peut aller
      * 
